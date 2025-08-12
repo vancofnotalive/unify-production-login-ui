@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/Unify_Login.css">
+<style>
+/* _class-name = universial class mainly use in js for consitent element grab */
+.page {
+    background: url('https://i.postimg.cc/xCh0tK2j/image.png');
+    animation:  backgroundMove 25s infinite linear;
+    background-size: 200% auto;
+    background-position-y: center;
+    position: relative;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position-x: 0%;
+    }
+
+    50% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: 200%;
+    }
+}
+@keyframes horizontal-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+}
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+        background-color: rgb(0, 84, 209 , 1);
+    border-radius: 2dvh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.form__form-content {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1dvh;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.form-content__heading {
+flex-direction: column;
+display: flex;
+align-items: center;
+justify-content: center;
+color: rgb(43, 43, 43);
+}
+.form-content__input-box {
+ position: relative;
+  display: flex;
+  
+  
+}
+.form-content__input-box input {
+    border-bottom: solid rgb(43, 43, 43);
+    background-color: white;
+    transition: background 31622400s linear;
+    color: rgb(43, 43, 43);
+}
+.form-content__input-box main {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgb(43, 43, 43);
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  color: rgb(43, 43, 43);
+  cursor: pointer;
+}
+
+.input-box__error {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+width: 100%;
+display: flex;
+align-items: center;
+color: red;
+transform: scale(1);
+}
+.input-box__error h1 {
+    position: relative;
+    border-radius: 1dvh;
+    display: flex;
+    align-items: center;
+    
+}
+.input-box__error i {
+    position: absolute;
+    top: 50%;
+    transform: translate(0 , -50%);
+    
+}
+.input-box__error span {
+    position: relative;
+}
+.input-box__details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+flex-direction: row-reverse;
+}
+.input-box__details section {
+    display: flex;
+    align-items: center;
+    color: red;
+    
+    
+}
+.input-box__details section h1 {
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 100%;
+    
+}
+.input-box__details aside {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    
+}
+.input-box__details aside a {
+    color: rgb(42, 97, 160);
+    
+}
+.input-box__details aside a:hover {
+    color: rgb(25, 43, 63);
+    text-decoration: underline;
+}
+.input-box__details section i {
+    
+}
+._error-container-none {
+transform: scale(0);
+opacity: 0;
+}
+._error-container-active {
+transform: scale(1);
+opacity: 1;
+animation: horizontal-shaking 200ms 3;
+}
+.input-box__error h1 span {
+    height: 100%;
+    overflow-y: scroll;
+    line-height: 0.9;
+}
+.form-content__login-btn {
+    background-color: rgb(7, 82, 168);
+    border-radius: 1dvh;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    transition: border-radius 200ms , background 200ms;
+}
+
+.login-btn__login-content {
+    background-color: rgb(255, 255, 255);
+    border-radius: 1dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 200ms , transform 200ms , border-radius 200ms;
+}
+.form-content__login-btn:hover {
+background-color: rgb(0, 71, 151);
+    border-radius: 2dvh;
+}
+.form-content__login-btn:active {
+background-color: rgb(3, 40, 83);
+    border-radius: 2dvh;
+    transform: scale(0.950);
+}
+.form-content__login-btn:active .login-btn__login-content{
+
+    border-radius: 2dvh !important;
+}
+.form-content__login-btn:hover .login-btn__login-content {
+    transform: scale(0.950);
+    border-radius: 0.5dvh;
+}
+.login-content__login-button {
+    height: 100%;
+    width: 100%;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: rgb(25, 43, 63);
+}
+.login-content__login-button span {
+    position: relative;
+}
+.form-content__login-providers {
+    
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.form-content__login-providers button {
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1dvh;
+    justify-content: center;
+    border: 0.1dvh solid rgb(117, 117, 117);
+    
+    cursor: pointer;
+    transition: transform 200ms;
+}
+.form-content__login-providers button h1 {
+    margin-left: 1ch !important;
+}
+.form-content__google {
+    color: rgb(124, 124, 124);
+}
+.form-content__facebook{
+    background-color: #0866ff !important;
+    color: white;
+}
+.form-content__login-providers button:hover {
+    filter: brightness(120%);
+    transform: translateY(-3%) scale(1.020);
+}
+.form-content__login-providers button:active {
+    transform: scale(0.950);
+    filter: brightness(90%);
+}
+.form-content__no-account {
+    
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-content__no-account a {
+    color: rgb(77, 77, 77);
+}
+.form-content__no-account a span {
+    color: rgb(0, 71, 151);
+}
+
+     * {
+      margin: 0 !important;
+      padding: 0 !important;
+      flex-shrink: 0 !important;
+      scrollbar-width: none;
+    }
+:root {
+  --link-color: rgb(54, 54, 54);;
+}
+    a {
+      text-decoration: none;
+    }
+    h1, h2 , h3 , h4 , h5 ,h6 , strong , span , p , a {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+input {
+  border: none;
+  outline: none;
+}
+    if-block {
+      display: none;
+    }
+
+   /* Phones (Portrait) */
+@media (max-width: 480px) {
+  if-block[device*="phone"] {
+    display: contents;
+  }
+  .form-header {
+    justify-content: center;
+  }
+  .form-img {
+    position: relative !important;
+  }
+  .form-img img {
+    width: 50% !important;
+  }
+}
+
+/* Phones (Landscape) and Small Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  if-block[device*="tab"] {
+    display: contents;
+  }
+}
+
+/* Tablets (Landscape) and Small Laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  if-block[device*="lap"] {
+    display: contents;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  if-block[device*="pc"] {
+    display: contents;
+  }
+}
+
+/* Large Desktops / TVs */
+@media (min-width: 1441px) {
+  if-block[device*="tv"] {
+    display: contents;
+  }
+}
+
+    body {
+      display: flex;
+      overflow: hidden;
+      width: 100dvw;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      if-block[theme=dark] {
+        display: contents;
+      }
+      if-block[theme=light] {
+        display: none;
+      }
+}
+
+@media (prefers-color-scheme: light) {
+if-block[theme=dark] {
+        display: none;
+      }
+      if-block[theme=light] {
+        display: contents;
+      }
+}
+target-block {
+  display: none;
+}
+target-block[data-active="true"] {
+  display: contents;
+}
+
+
+img {
+    width: 100%;
+    user-select: none !important;
+     -webkit-user-drag: none;
+}
+
+
+</style>
+</head>
+<body class="page" id="page">
+  <if-block device="pc || tab || lap || tv">
+
+      <section class="form {
+          height: .page_H / 1.2;
+          width: .page_W / 1.3;
+        }">
+        
+        <section class="form-image {
+            height: $t$.form_H / 1.1;
+            width: ($t$.form_W / 2.25) - ($t$.form_H - ($t$.form_H / 1.1));
+        }">
+
+        <img class="form-image-img {
+            width: $t$.form-image_W / 1.5;
+        }" src="https://i.postimg.cc/3wRXXvyy/blue-upscalemedia-transformed.png" style="
+        filter: brightness(0) invert(1);" alt="" srcset="">
+        
+<section class="form-image-main-img {
+    width: $t$.form-image_W;
+}">
+<img src="https://i.postimg.cc/TwmBQvdy/sahsgaimage-removebg-preview.png" class="{
+    width: $t$.form-image_W;
+    min-height: $t$.form-image_H - $t$.form-image@img_W;
+}" alt="" srcset="">
+</section>
+
+        </section>
+        <section class="form__form-content {
+            height: .form_H / 1.1;
+            width: .form_W / 2;
+        }">
+
+        <section class="form-content__heading {
+            height: $t$.form__form-content_H / 6;
+            width: $t$.form__form-content_W / 1.1;
+
+        }">
+            <h1 class="{
+                fs: ($t$.form-content__heading_H  + $t$.form-content__heading_W) / 20; 
+            }">Welcome back!</h1>
+            
+            <h1 class="{
+                fs: ($t$.form-content__heading_H  + $t$.form-content__heading_W) / 40; 
+            }">We are happy to see you again!</h1>
+
+        </section>
+
+        <section data-inputType="both" class="form-content__input-box _input-box _email {
+            height: ($t$.form__form-content_H - ($t$.form-content__heading_H)) / 6;
+            width: $t$.form__form-content_W / 1.1;
+        }">
+            <main onclick="inputChange(this)" class="{
+                height: ($t$.form-content__input-box_H / 1.8) - 2;
+                width: $t$.form-content__input-box_W - ($t$.form-content__input-box_W - $t$.form-content__input-box_H);
+                border-width: 2;
+            }">
+            <i class="fa-solid fa-user {
+                fs: ($t$.form-content__input-box@main_H + $t$.form-content__input-box@main_W) / 5;
+            }"></i>
+                
+            </main>
+            <input autocomplete="off" type="text" class="{
+                height: ($t$.form-content__input-box_H / 1.8) - 2;
+                width: $t$.form-content__input-box_W - $t$.form-content__input-box@main_W;  
+                border-width: 2;
+                fs: ($t$.form-content__input-box@main_H + $t$.form-content__input-box@main_W) / 9;
+            }" placeholder="Email address or username">
+
+            <section class="input-box__error {
+                height: $t$.form-content__input-box_H - ($t$.form-content__input-box@main_H + 2);
+            }">
+                <h1 class="_error-container _error-container-none {
+                  fs: ($t$.input-box__error_H + $t$.input-box__error_W) / 50;
+                  max-height: $t$.input-box__error_H;
+                }">
+                   <i class="fa-solid fa-exclamation-circle {
+                    fs: ($t$.input-box__error_H + $t$.input-box__error_W) / 50;
+                   }"></i> 
+                   <span class="_error-text {
+                    left:($t$.input-box__error_H + $t$.input-box__error_W) / 35;
+                    fs: ($t$.input-box__error_H + $t$.input-box__error_W) / 50;
+                    max-width: $t$.input-box__error_W - (($t$.input-box__error_H + $t$.input-box__error_W) / 50);
+
+                   }">Error message goes here</span>
+                </h1>
+            </section>
+            
+        </section>
+        <section class="form-content__input-box form-content__input-box--password _input-box _password {
+            height: ($t$.form__form-content_H - ($t$.form-content__heading_H)) / 6;
+            width: $t$.form__form-content_W / 1.1;
+        }">
+            <main class="{
+                height: ($t$.form-content__input-box_H / 1.8) - 2;
+                width: $t$.form-content__input-box_W - ($t$.form-content__input-box_W - $t$.form-content__input-box_H);
+                border-width: 2;
+            }">
+            <i class="fa-solid fa-key {
+                fs: ($t$.form-content__input-box@main_H + $t$.form-content__input-box@main_W) / 5;
+            }"></i>
+                
+            </main>
+            <input autocomplete="off" type="password" class="{
+                height: ($t$.form-content__input-box_H / 1.8) - 2;
+                width: $t$.form-content__input-box_W - $t$.form-content__input-box@main_W;  
+                border-width: 2;
+                fs: ($t$.form-content__input-box@main_H + $t$.form-content__input-box@main_W) / 9;
+            }" placeholder="Password">
+
+            <section class="input-box__details {
+                height: $t$.form-content__input-box_H - ($t$.form-content__input-box@main_H + 2);
+                width: $t$.form-content__input-box_W;
+            }">
+          
+        
+            <aside class="{
+                max-width: $t$.input-box__details_W / 3;
+                height: $t$.input-box__details_H;
+                fs: ($t$.input-box__details@aside_H + $t$.input-box__details_W) / 45;
+            }">
+                <a href="">Forgot password?</a>
+            </aside>
+              <section class=" _error-container _error-container-none {
+                height: $t$.input-box__details_H;
+                width: $t$.input-box__details_W -  $t$.input-box__details@aside_W;
+                
+            }">
+                <i class="fa-solid fa-exclamation-circle {
+                    fs: ($t$.input-box__details_H + $t$.input-box__details_W) / 40; 
+                }"></i>
+                <h1 class=" _error-text {
+                    width: $t$.input-box__details@section_W - (($t$.input-box__details_H + $t$.input-box__details_W) / 40);
+                    fs: ($t$.input-box__details_H + $t$.input-box__details_W) / 48;
+                    left: ($t$.input-box__details_H + $t$.input-box__details_W) / 100; 
+                }">Error message goes here</h1>
+        </section>
+                
+            </section>
+           
+            
+        </section>
+
+     <button class="form-content__login-btn {
+        height: ($t$.form__form-content_H - (($t$.form__form-content@.form-content__input-box_H * 2) + $t$.form__form-content@.form-content__heading_H)) / 5;
+        width: $t$.form__form-content_W / 2.5;
+     }">
+     <section class="login-btn__login-content {
+        height: $t$.form-content__login-btn_H / 1.5;
+        width:  $t$.form-content__login-btn_W - ($t$.form-content__login-btn_H - ($t$.form-content__login-btn_H / 1.5));
+     }">
+     <section class="login-content__login-button">
+
+       
+         <span class=" {
+            fs: ($t$.login-content__login-button_H + $t$.login-content__login-button_W) / 15;
+            
+         }">Login</span>
+           <!-- <i class="fa-solid fa-right-to-bracket {
+            fs: ($t$.login-content__login-button_H + $t$.login-content__login-button_W) / 15;
+         }"></i> -->
+        </section>
+     </section>
+     </button>
+
+     <section class="form-content__login-providers {
+        width: $t$.form__form-content@.form-content__input-box_W / 1.2;
+        height: ($t$.form__form-content_H - (($t$.form__form-content@.form-content__input-box_H * 2) + $t$.form__form-content@.form-content__heading_H +  $t$.form__form-content@.form-content__login-btn_H)) / 2.5;
+     }">
+<button class=" form-content__google {
+    height: $t$.form-content__login-providers_H / 2;
+    width: $t$.form-content__login-providers_W / 2.1;
+    
+}">
+    
+        <img class="{
+            width: $t$.form-content__login-providers@button_W / 8;
+        }" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google logo" width="24">
+
+
+    <h1 class=" {
+        fs: ($t$.form-content__login-providers@button_H + $t$.form-content__login-providers@button_W) / 18;
+    }">Login with google</h1>
+</button>
+<button class=" form-content__facebook {
+    height: $t$.form-content__login-providers_H / 2;
+    width: $t$.form-content__login-providers_W / 2.1;
+    
+}">
+    
+        <img class="{
+            width: $t$.form-content__login-providers@button_W / 8;
+        }" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Google logo" width="24">
+
+
+    <h1 class=" {
+        fs: ($t$.form-content__login-providers@button_H + $t$.form-content__login-providers@button_W) / 18;
+    }">Login with facebook</h1>
+</button>
+     </section>
+
+     <section class="form-content__no-account {
+        height: ($t$.form__form-content_H - ($t$.form__form-content@.form-content__heading_H + ($t$.form__form-content@.form-content__input-box_H * 2) + $t$.form__form-content@.form-content__login-btn_H + $t$.form__form-content@.form-content__login-providers_H)) / 2;
+        width: $t$.form__form-content_W;
+     }">
+<a href="" class="{
+    fs: ($t$.form-content__no-account_H + $t$.form-content__no-account_W) / 50;
+}">Don't have an account? <span>Create one</span></a>
+     </section>
+
+        
+
+        </section>
+
+    </section>
+</if-block>
+  
+
+
+
+    <script src="./js/mainClassSyntax.js"></script>
+    <script src="./js/Unify_Login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+       <script>
+        function inputChange(element) {
+    let icon = element.querySelector("i");
+    let parent = element.closest("._input-box");
+    let inputType = parent.getAttribute("data-inputType");
+    let input = parent.querySelector("input")
+    if (inputType == "both") {
+        parent.setAttribute("data-inputType" , "username");
+        icon.className = "fa-solid fa-signature"
+        input.setAttribute("placeholder" , "Username")
+    }
+    else if (inputType == "username") {
+        parent.setAttribute("data-inputType" , "email");
+        icon.className = "fa-solid fa-envelope"
+        input.setAttribute("placeholder" , "Email address")
+    }
+    else {
+      parent.setAttribute("data-inputType" , "both");
+        icon.className = "fa-solid fa-user"
+        input.setAttribute("placeholder" , "Email address or username")  
+    }
+}
+
+function showError(inputName , errorText) {
+    document.querySelectorAll("._" + inputName).forEach(inp => {
+       let errorContainer = inp.querySelector("._error-container")
+       let errorTextElement = errorContainer.querySelector("._error-text");
+       errorTextElement.innerText = errorText;
+       errorContainer.className = "_error-container _error-container-none";
+       setTimeout(() => {
+
+           errorContainer.className = "_error-container _error-container-active";
+        }, 1)
+    })
+}
+
+function removeError(inputName) {
+      document.querySelectorAll("._" + inputName).forEach(inp => {
+       let errorContainer = inp.querySelector("._error-container")
+       let errorTextElement = errorContainer.querySelector("._error-text");
+       errorTextElement.innerText = "";
+       errorContainer.className = "_error-container _error-container-none";
+    })
+}
+function removeAllErrors() {
+       document.querySelectorAll("._email").forEach(inp => {
+       let errorContainer = inp.querySelector("._error-container")
+       let errorTextElement = errorContainer.querySelector("._error-text");
+       errorTextElement.innerText = "";
+       errorContainer.className = "_error-container _error-container-none";
+    })
+       document.querySelectorAll("._password").forEach(inp => {
+       let errorContainer = inp.querySelector("._error-container")
+       let errorTextElement = errorContainer.querySelector("._error-text");
+       errorTextElement.innerText = "";
+       errorContainer.className = "_error-container _error-container-none";
+    })
+}
+        function isUserTypingNow() {
+  const el = document.activeElement;
+  return (
+    el &&
+    (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') &&
+    !el.readOnly &&
+    !el.disabled
+  );
+}
+
+
+function getCurrentDeviceType() {
+  const width = window.innerWidth;
+  if (width <= 480) return "phone";
+  if (width <= 768) return "tab";
+  if (width <= 1024) return "lap";
+  if (width <= 1440) return "pc";
+  return "tv";
+}
+
+function bindMirroredInputs() {
+  // const all = [...document.querySelectorAll("input[host], textarea[host], input[connect], textarea[connect]")];
+  // const map = {};
+
+  // all.forEach(el => {
+  //   const key = el.getAttribute("host") || el.getAttribute("connect");
+  //   if (!map[key]) map[key] = [];
+  //   map[key].push(el);
+  // });
+
+  // for (const key in map) {
+  //   const group = map[key];
+  //   group.forEach(el => {
+  //     el.addEventListener("input", () => {
+  //       group.forEach(target => {
+  //         if (target !== el) target.value = el.value;
+  //       });
+  //     });
+  //   });
+  // }
+}
+function hostAndConnect() {
+  let hosts = document.querySelectorAll("input[host]");
+  let connects = document.querySelectorAll("input[connect]");
+  hosts.forEach(h => {
+    connects.forEach(con => {
+      let connectAttribute = con.getAttribute("connect");
+      let hostAttribute = h.getAttribute("host");
+      if (connectAttribute == hostAttribute) {
+        h.addEventListener("input", () => {
+          if (con.value != h.value) {
+
+            con.value = h.value;
+            con.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+        });
+        con.addEventListener("input", () => {
+          if (h.value != con.value) {
+          h.value = con.value;
+          h.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+        });
+      }
+    });
+  });
+}
+hostAndConnect();
+
+
+
+function handleMoveTags() {
+  document.querySelectorAll("move[ele]").forEach(moveTag => {
+    const selector = moveTag.getAttribute("ele");
+    if (!selector) return;
+
+    let original;
+    if (selector.includes("@")) {
+      const parts = selector.split("@");
+      let base = document.querySelector(parts[0]);
+      for (let i = 1; i < parts.length && base; i++) {
+        base = base.querySelector(parts[i]);
+      }
+      original = base;
+    } else {
+      original = document.querySelector(selector);
+    }
+
+    if (!original) return;
+
+    const moveAttributes = [...moveTag.attributes].filter(attr => attr.name !== "ele");
+    let existing = moveTag.querySelector(original.tagName);
+    const isInput = original.tagName === "INPUT" || original.tagName === "TEXTAREA";
+
+    const shouldReplace =
+      !existing ||
+      moveAttributes.some(attr => existing.getAttribute(attr.name) !== attr.value) ||
+      (isInput && existing.value !== original.value);
+
+    if (!shouldReplace) return;
+    if (existing) existing.remove();
+
+    const clone = original.cloneNode(true);
+    moveAttributes.forEach(attr => clone.setAttribute(attr.name, attr.value));
+    if (isInput) clone.value = original.value;
+
+    moveTag.appendChild(clone);
+  });
+}
+
+function moveElementsIntoActiveIf() {
+  const currentDevice = getCurrentDeviceType();
+  const matchingIfBlocks = [...document.querySelectorAll("if-block")].filter(el => {
+    const devices = el.getAttribute("device")?.split("||").map(d => d.trim());
+    return devices?.includes(currentDevice);
+  });
+
+  for (const activeIf of matchingIfBlocks) {
+    const selector = activeIf.getAttribute("move");
+    if (!selector) continue;
+
+    let elementToMove = document.querySelector(selector);
+    if (!elementToMove) {
+      document.querySelectorAll("if-block").forEach(ifEl => {
+        const maybe = ifEl.querySelector(selector);
+        if (maybe) elementToMove = maybe;
+      });
+    }
+
+    if (!elementToMove) continue;
+
+    document.querySelectorAll("if-block").forEach(ifEl => {
+      const existing = ifEl.querySelector(selector);
+      if (existing) existing.remove();
+    });
+
+    if (elementToMove.parentElement) elementToMove.remove();
+    activeIf.appendChild(elementToMove);
+  }
+}
+function updateTargetBlockVisibility(root) {
+  const allTargets = (root || document).querySelectorAll("target-block[element][has]");
+  allTargets.forEach(target => {
+    const sel = target.getAttribute("element");
+    const required = target.getAttribute("has");
+    const scope = root || document;
+    const targetEl = scope.querySelector(sel);
+    const hasClass = targetEl?.classList.contains(required.replace(/^\./, ""));
+
+    if (hasClass) {
+      target.setAttribute("data-active", "true");
+    } else {
+      target.removeAttribute("data-active");
+    }
+  });
+}
+
+function applyDynamicStylesToElement(root) {
+  updateTargetBlockVisibility(root);
+
+  const propertyMap = {
+    marginT: "margin-top", marginR: "margin-right",
+    marginB: "margin-bottom", marginL: "margin-left",
+    paddingT: "padding-top", paddingR: "padding-right",
+    paddingB: "padding-bottom", paddingL: "padding-left",
+    fs: "font-size"
+  };
+
+  const currentDevice = getCurrentDeviceType();
+
+  const all = [...(root || document).querySelectorAll("[class*='{']")].filter(el => {
+    const ifb = el.closest("if-block");
+    if (ifb) {
+      const devs = (ifb.getAttribute("device") || "").split("||").map(d => d.trim());
+      if (!devs.includes(currentDevice)) return false;
+    }
+
+    const target = el.closest("target-block[element][has]");
+    if (target) {
+      const sel = target.getAttribute("element");
+      const required = target.getAttribute("has");
+      const scope = root || document;
+      const targetEl = scope.querySelector(sel);
+      const hasClass = targetEl?.classList.contains(required.replace(/^\./, ""));
+      if (hasClass) {
+        target.setAttribute("data-active", "true");
+      } else {
+        target.removeAttribute("data-active");
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  all.forEach(el => {
+    const classAttr = el.getAttribute("class");
+    const match = classAttr.match(/\{([^}]+)\}/);
+    if (!match) return;
+
+    const rules = match[1].split(";").map(r => r.trim()).filter(Boolean);
+    rules.forEach(rule => {
+      let [rawProp, expr] = rule.split(":").map(s => s.trim());
+      if (!rawProp || !expr) return;
+
+      const prop = propertyMap[rawProp] || rawProp;
+      let important = false;
+      if (expr.endsWith("!i")) {
+        important = true;
+        expr = expr.slice(0, -3).trim();
+      }
+
+      // $t$.selector1@selector2_(H|W)
+      expr = expr.replace(/\$t\$\.(.+?)_(H|W)/g, (_, chain, dim) => {
+        const parts = chain.split("@");
+        let node = el.closest(parts[0].startsWith(".") ? parts[0] : `.${parts[0]}`);
+        for (let i = 1; i < parts.length && node; i++) {
+          node = node.querySelector(parts[i]);
+        }
+        return node ? (dim === "H" ? node.offsetHeight : node.offsetWidth) : "0";
+      });
+
+      // Global selector (root-based): .selector1@selector2_(H|W)
+      expr = expr.replace(/([.#][\w@-]+)_(H|W)/g, (_, sel, dim) => {
+        const parts = sel.split("@");
+        let base = (root || document).querySelector(parts[0]);
+        for (let i = 1; i < parts.length && base; i++) {
+          base = base.querySelector(parts[i]);
+        }
+        if (!base) return "0";
+
+        const ifb = base.closest("if-block");
+        if (ifb) {
+          const devs = (ifb.getAttribute("device") || "").split("||").map(d => d.trim());
+          if (!devs.includes(currentDevice)) return "0";
+        }
+
+        return dim === "H" ? base.offsetHeight : base.offsetWidth;
+      });
+
+      try {
+        const val = Function(`return ${expr}`)();
+        if (!isNaN(val)) {
+          el.style.setProperty(prop, val + "px", important ? "important" : "");
+        }
+      } catch (err) {
+        console.warn(`Failed to evaluate class-style expression: "${expr}"`, err);
+        console.warn(el);
+      }
+    });
+  });
+}
+
+
+
+function applyDynamicStyles() {
+  applyDynamicStylesToElement(document);
+}
+
+function applyDynamicStylesToClone() {
+  const clone = document.body.cloneNode(true);
+  applyDynamicStylesToElement(clone);
+  return cleanString(clone.innerHTML);
+}
+
+let mutationObserver = null;
+let resizeObserver = null;
+
+function connectLayoutObservers() {
+  if (isUserTypingNow()) return;
+
+  if (!mutationObserver) {
+    mutationObserver = new MutationObserver(() => applyDynamicStyles());
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class", "style", "ds", "device", "has", "element"],
+    });
+  }
+
+  if (!resizeObserver) {
+    resizeObserver = new ResizeObserver(() => applyDynamicStyles());
+    resizeObserver.observe(document.body);
+  }
+}
+
+function disconnectLayoutObservers() {
+  if (mutationObserver) {
+    mutationObserver.disconnect();
+    mutationObserver = null;
+  }
+
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+    resizeObserver = null;
+  }
+}
+
+
+
+function normalizeHTML(str) {
+  return str.replace(/\s+/g, ' ')
+    .replace(/style="[^"]*"/g, '')
+    .trim();
+}
+
+function cleanString(str) {
+  return str.replace(/[\n\r\t\f\v]+/g, ' ')
+    .replace(/ {2,}/g, ' ')
+    .trim();
+}
+
+function setBodyHeight() {
+  document.querySelector("body").style.height = window.innerHeight + "px";
+}
+
+function init() {
+ setTimeout(() => {
+   setBodyHeight();
+  moveElementsIntoActiveIf();
+  handleMoveTags();
+  bindMirroredInputs();
+ }, 50);
+}
+
+window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("resize", init);
+
+function  observeLayoutChanges() {
+  connectLayoutObservers();
+}
+
+observeLayoutChanges();
+
+/*
+!) Theme is suported dark and light
+theme="dark" theme="light"
+
+!) $t$TagName is not supported. Experiemtn with it
+
+!) target block element="" does not support %t% and those syntaxes, it just takes
+	 simple class
+*/
+       </script>
+</body>
+</html>
+<!-- ya karo => aab login button pe kaam karna hai 
+ fir login with google/facebook and already have an account pe kaam karna hai
+ fir get form data function banana hai jo universial sab ka data extract karre ga
+ fir phone version banana hai fir backend ma jana hai and forget password ko banana hai
+ fir error page bananna hai
+ shift updated main.js to general.js in real project
+ -->
